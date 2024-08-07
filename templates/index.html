@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Prediction Form</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fever">Fever (Yes/No):</label>
+                <input type="text" id="fever" name="fever" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cough">Cough (Yes/No):</label>
+                <input type="text" id="cough" name="cough" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sorethroat">Sore Throat (Yes/No):</label>
+                <input type="text" id="sorethroat" name="sorethroat" required>
+            </div>
+
+            <div class="form-group">
+                <label for="shortnessofbreath">Shortness of Breath (Yes/No):</label>
+                <input type="text" id="shortnessofbreath" name="shortnessofbreath" required>
+            </div>
+
+            <div class="form-group">
+                <label for="headache">Headache (Yes/No):</label>
+                <input type="text" id="headache" name="headache" required>
+            </div>
+
+            <div class="form-group">
+                <label for="musclepain">Muscle Pain (Yes/No):</label>
+                <input type="text" id="musclepain" name="musclepain" required>
+            </div>
+
+            <div class="form-group">
+                <label for="fatigue">Fatigue (Yes/No):</label>
+                <input type="text" id="fatigue" name="fatigue" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nausea">Nausea (Yes/No):</label>
+                <input type="text" id="nausea" name="nausea" required>
+            </div>
+
+            <div class="form-group">
+                <label for="vomiting">Vomiting (Yes/No):</label>
+                <input type="text" id="vomiting" name="vomiting" required>
+            </div>
+
+            <div class="form-group">
+                <label for="diarrhea">Diarrhea (Yes/No):</label>
+                <input type="text" id="diarrhea" name="diarrhea" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lossoftaste">Loss of Taste (Yes/No):</label>
+                <input type="text" id="lossoftaste" name="lossoftaste" required>
+            </div>
+
+            <div class="form-group">
+                <label for="lossofsmell">Loss of Smell (Yes/No):</label>
+                <input type="text" id="lossofsmell" name="lossofsmell" required>
+            </div>
+
+            <div class="form-group">
+                <label for="congestion">Congestion (Yes/No):</label>
+                <input type="text" id="congestion" name="congestion" required>
+            </div>
+
+            <div class="form-group">
+                <label for="chestpain">Chest Pain (Yes/No):</label>
+                <input type="text" id="chestpain" name="chestpain" required>
+            </div>
+
+            <div class="form-group">
+                <label for="chills">Chills (Yes/No):</label>
+                <input type="text" id="chills" name="chills" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sweating">Sweating (Yes/No):</label>
+                <input type="text" id="sweating" name="sweating" required>
+            </div>
+
+            <div class="form-group">
+                <label for="rash">Rash (Yes/No):</label>
+                <input type="text" id="rash" name="rash" required>
+            </div>
+
+            <div class="form-group">
+                <label for="conjunctivitis">Conjunctivitis (Yes/No):</label>
+                <input type="text" id="conjunctivitis" name="conjunctivitis" required>
+            </div>
+
+            <div class="form-group">
+                <label for="hospitalized">Hospitalized (Yes/No):</label>
+                <input type="text" id="hospitalized" name="hospitalized" required>
+            </div>
+
+            <input type="submit" value="Predict">
+        </form>
+    </div>
+</body>
+</html>
