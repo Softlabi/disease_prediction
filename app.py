@@ -1,8 +1,13 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for, flash, session
 import pandas as pd
 import joblib
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+app.secret_key = 'your_secret_key'
+
+# Simulated user database
+user_db = {}
 
 # Load the trained model and label encoders
 model = joblib.load('xgboost_model7.joblib')
@@ -13,7 +18,49 @@ def yes_no_to_numeric(value):
     return 1 if value.lower() == "yes" else 0
 
 @app.route('/')
+def onboarding():
+    return render_template('onboarding.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        username = request.form['username']
+        email = request.form['email']
+        password = request.form['password']
+
+        if email in user_db:
+            flash('Email already registered. Please sign in.', 'warning')
+            return redirect(url_for('signin'))
+
+        user_db[email] = {
+            'username': username,
+            'password': generate_password_hash(password)
+        }
+        session['user'] = username
+        flash('Sign up successful!', 'success')
+        return redirect(url_for('home'))
+    return render_template('sign_up.html')
+
+@app.route('/signin', methods=['GET', 'POST'])
+def signin():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+
+        user = user_db.get(email)
+        if user and check_password_hash(user['password'], password):
+            session['user'] = user['username']
+            flash('Sign in successful!', 'success')
+            return redirect(url_for('home'))
+        else:
+            flash('Invalid email or password. Please try again.', 'danger')
+    return render_template('sign_in.html')
+
+@app.route('/home')
 def home():
+    if 'user' not in session:
+        flash('Please sign in to access the prediction form.', 'warning')
+        return redirect(url_for('signin'))
     return render_template('index.html')
 
 @app.route('/predict', methods=['POST'])
