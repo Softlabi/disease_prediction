@@ -51,7 +51,7 @@ input, select {
 input[type="submit"] {
     width: 100%;
     padding: 15px;
-    background-color: #4CAF50;
+    background-color: #0022ff;
     color: white;
     border: none;
     cursor: pointer;
@@ -60,5 +60,5 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: #0066ff;
 }

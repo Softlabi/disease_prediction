@@ -8,11 +8,16 @@
 </head>
 <body>
     <div class="onboarding-container">
-        <h1>Welcome to Disease Prediction App</h1>
-        <p>Your health companion in predicting potential diseases based on symptoms.</p>
-        <div class="onboarding-buttons">
-            <a href="/signup" class="btn">Sign Up</a>
-            <a href="/signin" class="btn">Sign In</a>
+        <div class="text-container">
+            <h1 style="color: blue;">Welcome to Disease Prediction App</h1>
+            <p>Take the first step towards proactive healthcare by joining our community. Sign up now to harness the power of advanced disease prediction based on your symptoms, and let us be your trusted companion in managing your health journey effectively and efficiently.</p>
+            <div class="onboarding-buttons">
+                <a href="/signup" class="btn">Sign Up</a>
+                <a href="/signin" class="btn">Sign In</a>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='Group.png') }}" alt="Onboarding Image" class="bounce">
         </div>
     </div>
 </body>
